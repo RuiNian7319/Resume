@@ -1,0 +1,246 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+
+
+\begin{resume_header}
+
+\name{Rui (Ray) Nian}
+\program{MSc. Optimal Control and Data Analytics}
+\contact{903 Lamb Crescent, Edmonton, AB T6R 2X8 \hspace{2cm} Email: rnian@ualberta.ca \hspace{2cm} Phone: 587-984-8456}
+
+\end{resume_header}
+
+
+
+
+\begin{resume_section}{Education}
+  \begin{resume_subsection}[Edmonton, AB (2017--Present)]{University of Alberta}
+    \begin{subitems}
+      \item MSc. Optimal Control and Data Analytics
+      \item GPA: 3.93 / 4.00
+     \end{subitems}
+  \end{resume_subsection}
+
+  \begin{resume_subsection}[Edmonton, AB (2012--2017)]{University of Alberta}
+    \begin{subitems}
+      \item BSc. Chemical Engineering Co-op Program with Distinction
+      \item GPA: 3.85 / 4.00
+    \end{subitems}
+  \end{resume_subsection}
+  
+\end{resume_section}
+
+
+
+
+
+\begin{resume_section}{Work Experience}
+
+  \begin{resume_employer}{University of Alberta}{Department of Chemical and Materials Engineering - Process Control Group}{Edmonton, AB}{Sept 2017 - Now}
+    \item Currently comparing Model Predictive Controls (MPC) using collocation trajectory optimization against Deep Deterministic Policy Gradient (DDPG) reinforcement learning methods on multiple-input multiple-output (MIMO) continuous states, continuous action systems using Python
+    \item Developed reinforcement learning Python script to find optimal set points for various manufacturing processes
+    \item Developed \textit{off-policy} Q-learning adaptive controller for an industry scale water treatment plant, resulting in significant electricity savings, while meeting strict gov’t regulations
+    \item Developed SMART industrial alarm system with alarm prioritization and redundant alarm removal via reinforcement learning, pattern recognition and data mining algorithms
+    \item Knowledge and experience in building supervised, unsupervised, and reinforcement learning models using Python packages such as TensorFlow, scikit-learn, NumPy, SciPy, and MatPlotLib
+    \item Presented ideas for optimal control using reinforcement learning to research sponsors: Suncor, Emerson, Spartan Controls, etc.
+  \end{resume_employer}
+  
+  \begin{resume_employer}{Canadian Natural Resources Limited - Horizon Project}{Data Scientist / Optimization Co-op Student}{Calgary, AB}{May 2016 - Dec 2016}
+    \item Coded aesthetically pleasing and intuitive data analyzation interfact using Microsoft Excel VBA and Tableau.  Allowed team to make 10M+ decisions regarding future strategic development
+    \item Modelled and analyzed results for future oil sands mining plans in ARENA software
+	\item Involved in the controls design of the new oil sands mining project
+  \end{resume_employer}
+  
+  \begin{resume_employer}{ARC Resources Ltd.}{Data Scientist (Exploitation) Co-op Student}{Calgary, AB}{Jan 2015 - Aug 2015}
+    \item Created a beautiful Spotfire GUI for a large oil and gas field in Northern Alberta; allowed creation of custom visualizations for 80+ different variables and included an interactive map
+    \item Created automatic Excel spreadsheet with data dump capable of processing over 10 million cells of data; Spreadsheet contained over 80 variables for over 400 oil wells
+    \item Built oil \& gas reserves map for a large oil and gas field in Northern Alberta using Microsoft Excel and presented potential large reservoirs to the team
+    \item Explored innovative well designs by analyzing over 9 million cells of data with 80+ features
+  \end{resume_employer}
+  
+    \begin{resume_employer}{University of Alberta - Partnered with Alberta Health Services}{Bioinformatics Research Assistant}{Edmonton, AB}{May 2014 - Aug 2014}
+    \item Performed raw data processing via outlier removal, feature scaling and feature engineering
+    \item Maintained and improved toxicity assessment MATLAB analyzation codes used for principle component analysis, hierarchical k-means / k-medoids clustering, and drug effect classification
+    \item Applied various classification algorithms to classify drugs’ impact on humans and to explore correlation between in vivo and in vitro experimentation
+    \item Aided in improving the scalability of the MATLAB GUI responsible for feature extraction
+    \item Helped write various research papers and reports for the results of the project.
+  \end{resume_employer}
+  
+\end{resume_section}
+
+
+\begin{resume_section}{Organization and Club Activities}
+  \begin{resume_employer}{Department of Chemical and Materials Engineering - Graduate Students' Association}{VP - Finance}{Edmonton, AB}{Sept 2018 - Present}
+    \item Manage the 2018 - 2019 fiscal year budget for the Chemical and Materials Engineering GSA
+    \item Ensure all academic and recreational events hosted by GSA are within budget compared to previous years
+    \item Responsible for raising operating funds via fund-raiser events or through application of grants
+  \end{resume_employer}
+
+
+
+  \begin{resume_employer}{University of Alberta - Faculty of Engineering}{Faculty Leader}{Edmonton, AB}{April 2018 - Present}
+        \item Responsible for leading a group of 25 new undergraduate students throughout campus for 2 days
+        \item Created a friendly, neutral environment where new students are comfortable, motivated, and excited
+        \item Worked tirednessly 
+        \item Ensure undergraduate students are equipped with reliable, truthful and useful information for their upcoming University journey
+  \end{resume_employer}
+  
+  
+  
+    \begin{resume_employer}{University of Alberta - Faculty of Engineering}{Teaching Assistant - Ch E 358 Process Data Analysis}{Edmonton, AB}{Sept 2018 - Present}
+        \item Responsible for teaching a class of undergraduate students introductory statistics and machine learning
+        \item Created videos and other interactive tutorials to enhance learning experience
+        \item Related concepts in class to real world problems to bridge the gap between the classroom and the real world
+  \end{resume_employer}
+  
+    \begin{resume_employer}{Automatic Robotic Vehicle Project}{University of Alberta}{Edmonton, AB}{Sept 2018 - Present}
+        \item Working in a multi-disciplinary engineering team developing controls for an autonomous underwater vehicle 
+        \item Developed effective presentation skills by communicating engineering concepts to a multi-disciplinary team 
+  \end{resume_employer}
+  
+     \begin{resume_employer}{GitHub}{Personal Project}{Edmonton, AB}{Sept 2017 - Present}
+        \item Built different dynamic SISO, MISO, SIMO, and MIMO simulators to evaluate various control strategies and their characteristics.
+        \item Compared performance of Proportional-Integral-Derivative, model predictive control and reinforcement learning controllers on different dynamic simulations to evaluate the best controllers for different situations.
+  \end{resume_employer}
+
+\end{resume_section}
+
+
+
+\begin{resume_section}{Additional Certificates and Information}
+  
+  \begin{resume_subsection}[Online (2018)]{Deeplearning.ai}
+    \begin{subitems}
+      \item Deep Learning Specialization
+      \item Developed knowledge in deep feedforward neural networks, RNNs with LSTM/GRU, and CNNs
+      \item Learned about the optimization methods of deep learning and effective hyper parameter tuning
+     \end{subitems}
+  \end{resume_subsection}
+  
+    \begin{resume_subsection}[Online (2018)]{Udemy}
+    \begin{subitems}
+      \item Tensorflow for Deep Learning
+      \item Learned application skills for Tensorflow using Jupyter notebook
+      \item Built feedforward neural networks, RNNs with LSTM/GRU and CNNs
+     \end{subitems}
+  \end{resume_subsection}
+  
+      \begin{resume_subsection}[Online (2017 - Now)]{Medium / StackOverflow}
+    \begin{subitems}
+      \item Active contributor in the Stack Exchange / Stack Overflow community, answering questions on the public forums regarding supervised, unsupervised, and reinforcement learning concepts and application
+      \item Actively blogging concepts in data science, artificial intelligence and advanced controls
+     \end{subitems}
+  \end{resume_subsection}
+ 
+\vspace{5mm} 
+ 
+\begin{nospacetabbing}
+  \textbf{Technical Skills}  \= Python, MATLAB, Tableau, TIBCO Spotfire, Microsoft Word, Microsoft PowerPoint, Microsoft Excel \\
+  
+  \hspace*{2.7cm} Microsoft VBA, Linux/iOS/Windows Operating Systems, Jupyter Notebook, \LaTeX\\*
+  
+  \textbf{Languages} \> Fluent in English and Mandarin\\*
+  \textbf{External Links} \=  \hspace*{0.0mm} \href{https://stackoverflow.com/users/9191460/rui-nian?tab=profile}{StackOverflow} \href{https://medium.com/@ruinian}{Medium} \href{https://www.linkedin.com/in/rui-nian-a1892a93/}{LinkedIn} \\*
+  
+  \end{nospacetabbing}
+
+\end{resume_section}
+
+
+\end{document}
